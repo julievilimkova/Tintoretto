@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <title>Odemkni informaci</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 50px; }
+    #info { display: none; margin-top: 20px; padding: 10px; border: 1px solid #333; background: #f0f0f0; }
+    #error { color: red; }
+  </style>
+</head>
+<body>
+  <h2>Zadej číslo pro přístup k informaci</h2>
+  <input type="text" id="codeInput" placeholder="Zadej kód" />
+  <button onclick="checkCode()">Odemknout</button>
+  <p id="error"></p>
+
+  <div id="info">
+    <h3>Skrytá informace:</h3>
+    <p>Toto je tajný text, který vidíš jen po zadání správného kódu!</p>
+  </div>
+
+  <script>
+    const correctCode = "12345"; // sem napiš své číslo/kód
+
+    function checkCode() {
+      const input = document.getElementById('codeInput').value;
+      const errorElem = document.getElementById('error');
+      const infoElem = document.getElementById('info');
+
+      if (input === correctCode) {
+        infoElem.style.display = 'block';
+        errorElem.textContent = '';
+      } else {
+        infoElem.style.display = 'none';
+        errorElem.textContent = 'Špatný kód, zkus to znovu.';
+      }
+    }
+  </script>
+</body>
+</html>
