@@ -17,10 +17,10 @@
 </head>
 <body>
 
-  <!-- Nadpis mimo šedé rámečky -->
+  <!-- Nadpis mimo šedý rámeček -->
   <h2><strong>--..|.-|-..|.|.---|-|.||.--.|.-.|..|...|-|..-|.--.|---|...-|-.--||-.-|---|-..|</strong></h2>
 
-  <!-- Vstup a tlačítko -->
+  <!-- Vstup pro kód a tlačítko -->
   <input type="text" id="codeInput" placeholder="--..|.-|-..|.|.---|-|.||-.-|---|-..|" />
   <button onclick="checkCode()">---|-..|.|--|-.-|-.|---|..-|-|</button>
   <p id="error"></p>
@@ -33,15 +33,15 @@
 
   <!-- Druhý šedý rámeček -->
   <div id="info2" class="info-box">
-    <h3>--- ...- .-.. .- - ... -. .. / - . -..-. -</h3>
+    <h3>Další informace</h3>
     <p>- . -. - --- / ... . / --- -... .--- . ...- .. .-.. / .-.. .. / .--. --- --.. -.. .- .-.-.-</p>
   </div>
 
   <script>
-    const correctCode = "----.|----.|-----|-....|"; // tvůj kód v morseovce
+    const correctCode = "----.|----.|-----|-....|"; // zde je správný kód
 
     function checkCode() {
-      const input = document.getElementById('codeInput').value;
+      const input = document.getElementById('codeInput').value.trim();
       const errorElem = document.getElementById('error');
       const info1 = document.getElementById('info1');
       const info2 = document.getElementById('info2');
@@ -53,10 +53,11 @@
       } else {
         info1.style.display = 'none';
         info2.style.display = 'none';
-        errorElem.textContent = '...|.--.|.-|-|-.|-.--||-.-|---|-..|--..--||--..|-.-|..-|...||-|---||--..|-.|---|...-|..-|.-.-.-|';
+        errorElem.textContent = 'Nesprávný kód. Zkus to znovu.';
       }
     }
   </script>
 
 </body>
 </html>
+
