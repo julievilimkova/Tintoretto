@@ -5,38 +5,58 @@
   <title>Odemkni informaci</title>
   <style>
     body { font-family: Arial, sans-serif; margin: 50px; }
-    #info { display: none; margin-top: 20px; padding: 10px; border: 1px solid #333; background: #f0f0f0; }
+    .info-box {
+      display: none;
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #333;
+      background: #f0f0f0;
+    }
     #error { color: red; }
   </style>
 </head>
 <body>
-  <h2>--..|.-|-..|.|.---|-|.||.--.|.-.|..|...|-|..-|.--.|---|...-|-.--||-.-|---|-..|</h2>
+
+  <!-- Nadpis mimo šedé rámečky -->
+  <h2><strong>--..|.-|-..|.|.---|-|.||.--.|.-.|..|...|-|..-|.--.|---|...-|-.--||-.-|---|-..|</strong></h2>
+
+  <!-- Vstup a tlačítko -->
   <input type="text" id="codeInput" placeholder="--..|.-|-..|.|.---|-|.||-.-|---|-..|" />
   <button onclick="checkCode()">---|-..|.|--|-.-|-.|---|..-|-|</button>
   <p id="error"></p>
 
-  <div id="info">
+  <!-- První šedý rámeček -->
+  <div id="info1" class="info-box">
     <h3>.-|-.-|-|..-|.-|.-..|-.|..||.--.|.-.|.|....|.-..|.|-..|</h3>
     <p>...-|-.--|--..|...-|.-||.--.|.-.|---||-|..|-.|-|.-||.----|-----|.----|---...|||.--.|---|-.-|..-|-..||..-|.-.|-.--|----|.-..|.|-.|.||-.|.|.--.|---|-..|.-|-|.||....|.-..|.-|...|.|-.|..||.-||-.|.|-..|---|...|-|.-|...-|..|-|.||...|.||-.|.-||...|----|..-|--..|..||-|..---|..---|--..--||-...|..-|-..|.|-|.||...-|-.--|.-..|---|..-|-.-.|.|-.|.-.-.-|</p>
   </div>
 
+  <!-- Druhý šedý rámeček -->
+  <div id="info2" class="info-box">
+    <h3>--- ...- .-.. .- - ... -. .. / - . -..-. -</h3>
+    <p>- . -. - --- / ... . / --- -... .--- . ...- .. .-.. / .-.. .. / .--. --- --.. -.. .- .-.-.-</p>
+  </div>
+
   <script>
-    const correctCode = "----.|----.|-----|-....|"; // sem napiš své číslo/kód
+    const correctCode = "----.|----.|-----|-....|"; // tvůj kód v morseovce
 
     function checkCode() {
       const input = document.getElementById('codeInput').value;
       const errorElem = document.getElementById('error');
-      const infoElem = document.getElementById('info');
-      const correctCode = "----.|----.|-----|-....|";
+      const info1 = document.getElementById('info1');
+      const info2 = document.getElementById('info2');
 
       if (input === correctCode) {
-        infoElem.style.display = 'block';
+        info1.style.display = 'block';
+        info2.style.display = 'block';
         errorElem.textContent = '';
       } else {
-        infoElem.style.display = 'none';
+        info1.style.display = 'none';
+        info2.style.display = 'none';
         errorElem.textContent = '...|.--.|.-|-|-.|-.--||-.-|---|-..|--..--||--..|-.-|..-|...||-|---||--..|-.|---|...-|..-|.-.-.-|';
       }
     }
   </script>
+
 </body>
 </html>
